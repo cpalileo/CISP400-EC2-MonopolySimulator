@@ -1,4 +1,6 @@
 #include <iostream>
+#include <iomanip>
+#include <string>
 using namespace std;
 
 
@@ -271,8 +273,16 @@ public:
         if (currentPosition >= 40) {
             currentPosition %= 40;
         }
-        cout << "You are on space number: " << BoardSpace[currentPosition].SpaceNumber
-             << ", " << BoardSpace[currentPosition].SpaceName << endl;
+    }
+
+
+    int& getSpaceCountRef(int spaceNumber) {
+        return BoardSpace[spaceNumber].SpaceCount;
+    }
+
+
+    string getSpaceName(int spaceNumber) {
+        return BoardSpace[spaceNumber].SpaceName;
     }
 };
 
@@ -308,9 +318,32 @@ public:
 };
 
 
+class Card {
+    // Chance and Community Chest Cards will go here
+};
+
+
+class GameStatistics {
+public:
+    void TallySpace(Board& board, int& currentPosition) {
+        board.getSpaceCountRef(currentPosition)++;
+    }    
+
+    void PrintResults(Board& board){
+        cout << setw(25) << left << "Space Name" << setw(10) << right << "Space Count" << endl;
+        cout << "------------------------------------" << endl;
+        
+        for (int i = 0; i < 40; i++) {
+            cout << setw(25) << left << board.getSpaceName(i) << setw(10) << right << board.getSpaceCountRef(i) << endl;
+        }
+    }
+};
+
+
 int main() {
     Board board;
     Dice dice;
+    GameStatistics gameStatistics;
     int totalRoll;
     int currentPosition = 0;
 
@@ -319,8 +352,12 @@ int main() {
     for (int i = 0; i < 10000; i++) {
         dice.RollDice();
         totalRoll = dice.getTotalRoll();
-        cout << "You rolled " << dice.getTotalRoll() << endl;
         board.moveSpaces(currentPosition, totalRoll);
+        gameStatistics.TallySpace(board, currentPosition);
     }
+
+    gameStatistics.PrintResults(board);
+
+    cout << "\nEnd Program\n" << endl;
     return 0;
 };
