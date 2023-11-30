@@ -342,7 +342,108 @@ private:
     Chest ChestCard[16];
 
 public:
-    // Chance and Community Chest Cards will go here
+    void initializeChanceCards() {
+        ChanceCards[0].CardName = "Advance to Go";
+        ChanceCards[0].CardAction = 'G';
+
+        ChanceCards[1].CardName = "Advance to Illinois Ave.";
+        ChanceCards[1].CardAction = 'M';
+
+        ChanceCards[2].CardName = "Advance to St. Charles Place";
+        ChanceCards[2].CardAction = 'M';
+
+        ChanceCards[3].CardName = "Advance to nearest Utility";
+        ChanceCards[3].CardAction = 'U';
+
+        ChanceCards[4].CardName = "Advance to nearest Railroad";
+        ChanceCards[4].CardAction = 'R';
+
+        ChanceCards[5].CardName = "Bank pays you dividend of $50";
+        ChanceCards[5].CardAction = 'P';
+
+        ChanceCards[6].CardName = "Get out of Jail free this card may be kept until needed, or traded/sold";
+        ChanceCards[6].CardAction = 'J';
+
+        ChanceCards[7].CardName = "Go back 3 spaces";
+        ChanceCards[7].CardAction = 'B';
+
+        ChanceCards[8].CardName = "Go to Jail! Go directly to jail! Do not pass Go, do not collect $200";
+        ChanceCards[8].CardAction = 'J';
+
+        ChanceCards[9].CardName = "Make general repairs on all your property for each house pay $25";
+        ChanceCards[9].CardAction = 'R';
+
+        ChanceCards[10].CardName = "Pay poor tax of $15";
+        ChanceCards[10].CardAction = 'T';
+
+        ChanceCards[11].CardName = "Take a trip to Reading Railroad";
+        ChanceCards[11].CardAction = 'R';
+
+        ChanceCards[12].CardName = "Take a walk on the Boardwalk advance token to Boardwalk";
+        ChanceCards[12].CardAction = 'M';
+
+        ChanceCards[13].CardName = "You have been elected chairman of the board pay each player $50";
+        ChanceCards[13].CardAction = 'P';
+
+        ChanceCards[14].CardName = "Your building loan matures collect $150";
+        ChanceCards[14].CardAction = 'P';
+
+        ChanceCards[15].CardName = "You have won a crossword competition - collect $100";
+        ChanceCards[15].CardAction = 'P';
+    }
+
+    void initializeCommunityChestCards() {
+        CommunityChestCards[0].CardName = "Advance to Go";
+        CommunityChestCards[0].CardAction = 'G';
+
+        CommunityChestCards[1].CardName = "Bank error in your favor";
+        CommunityChestCards[1].CardAction = 'B';
+
+        CommunityChestCards[2].CardName = "Doctor's fees Pay $50";
+        CommunityChestCards[2].CardAction = 'P';
+
+        CommunityChestCards[3].CardName = "From sale of stock you get $45";
+        CommunityChestCards[3].CardAction = 'P';
+
+        CommunityChestCards[4].CardName = "Get out of Jail free this card may be kept until needed, or traded/sold";
+        CommunityChestCards[4].CardAction = 'J';
+
+        CommunityChestCards[5].CardName = "Go to Jail go directly to jail Do not pass Go, do not collect $200";
+        CommunityChestCards[5].CardAction = 'J';
+
+        CommunityChestCards[6].CardName = "Grand Opera Night collect $50 from every player for opening night seats";
+        CommunityChestCards[6].CardAction = 'P';
+
+        CommunityChestCards[7].CardName = "Holiday Fund matures - Receive $100";
+        CommunityChestCards[7].CardAction = 'P';
+
+        CommunityChestCards[8].CardName = "Income tax refund collect $20";
+        CommunityChestCards[8].CardAction = 'P';
+
+        CommunityChestCards[9].CardName = "It is your birthday - Collect $10 from each player";
+        CommunityChestCards[9].CardAction = 'P';
+
+        CommunityChestCards[10].CardName = "Life insurance matures collect $100";
+        CommunityChestCards[10].CardAction = 'P';
+
+        CommunityChestCards[11].CardName = "Hospital Fees Pay $50";
+        CommunityChestCards[11].CardAction = 'P';
+
+        CommunityChestCards[12].CardName = "School fees Pay $50";
+        CommunityChestCards[12].CardAction = 'P';
+
+        CommunityChestCards[13].CardName = "Receive $25 consultancy fee";
+        CommunityChestCards[13].CardAction = 'P';
+
+        CommunityChestCards[14].CardName = "You are assessed for street repairs $40 per house, $115 per hotel";
+        CommunityChestCards[14].CardAction = 'R';
+
+        CommunityChestCards[15].CardName = "You inherit $100";
+        CommunityChestCards[15].CardAction = 'P';
+
+        CommunityChestCards[16].CardName = "You win second prize in a beauty contest - collect $10";
+        CommunityChestCards[16].CardAction = 'P';
+    }
 };
 
 
