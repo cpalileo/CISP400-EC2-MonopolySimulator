@@ -15,6 +15,24 @@ struct Space {
 };
 
 
+struct Chance {
+    string ChanceName;
+    char ChanceAction;
+
+    Chance()
+        : ChanceName(""), ChanceAction(' ') {}
+};
+
+
+struct Chest {
+    string ChestName;
+    char ChestAction;
+
+    Chest()
+        : ChestName(""), ChestAction(' ') {}
+};
+
+
 class Board {
 private: 
     Space BoardSpace[40];
@@ -319,6 +337,11 @@ public:
 
 
 class Card {
+private:
+    Chance ChanceCard[16];
+    Chest ChestCard[16];
+
+public:
     // Chance and Community Chest Cards will go here
 };
 
