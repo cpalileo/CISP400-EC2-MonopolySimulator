@@ -1,9 +1,18 @@
+/********************************************************
+* Author:      Christopher Palileo                      *
+* Professor:   Caleb Fowler                             *
+* Class:       CISP 400                                 *
+* Assignment:  Extra Credit 2: Monopoly Simulator (ms)  *
+* Date:        11/27/2023                               *
+* Description: Monopoly Simulator for Keeping Stats     *
+********************************************************/
+
 #include <iostream>
 #include <iomanip>
 #include <string>
 using namespace std;
 
-
+// Struct for gameboard spaces
 struct Space {
     int SpaceNumber;
     string SpaceName;
@@ -15,6 +24,7 @@ struct Space {
 };
 
 
+// Struct for Chance Cards
 struct Chance {
     string ChanceName;
     char ChanceCode;
@@ -25,6 +35,7 @@ struct Chance {
 };
 
 
+// Struct for Community Chest Cards
 struct Chest {
     string ChestName;
     char ChestCode;
@@ -35,6 +46,7 @@ struct Chest {
 };
 
 
+// Card class hold each cards attributes and logic for drawing cards
 class Card {
 private:
     Chance ChanceCard[16];
@@ -180,6 +192,8 @@ public:
 };
 
 
+// Board class defines board spaces attributes, wrapping around board, 
+// and board movement caused by other special circumstances (not dice)
 class Board {
 private: 
     Space BoardSpace[40];
@@ -414,13 +428,14 @@ public:
             if (action <= 99) {
                 currentPosition = action;
             } else if (action == 101) {
+                // Logic for moving to the nearest utility
                 if (currentPosition < 12 || currentPosition >= 28) {
                     currentPosition = 12;  // Move to Electric Company
                 } else {
                     currentPosition = 28;  // Move to Water Works
                 }
             } else if (action == 102) {
-                // Move to nearest railroad
+                // Logic for moving to the nearest railroad
                 if (currentPosition < 5 || (currentPosition >= 15 && currentPosition < 25) || currentPosition >= 35) {
                     currentPosition = 5;  // Move to Reading Railroad
                 } else if (currentPosition < 15) {
@@ -431,6 +446,7 @@ public:
                     currentPosition = 35;  // Move to Short Line Railroad
                 }
             } else if (action == 103) {
+                // Logic for move back three spaces chance card
                 currentPosition -= 3;
             }
 
@@ -454,6 +470,7 @@ public:
 };
 
 
+// Class for handling dice rolling
 class Dice {
 private:
     int Roll1;
@@ -485,6 +502,8 @@ public:
 };
 
 
+// Logic for tallying spaces landed on and displaying the results
+// FIXME: Time permitting do optional task of sorting results
 class GameStatistics {
 public:
     void TallySpace(Board& board, int& currentPosition) {
